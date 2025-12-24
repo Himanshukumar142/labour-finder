@@ -28,9 +28,10 @@ jobs:
       # We added the path to your pom.xml here
       run: mvn -B package --file labour-finder/labour-finder/pom.xml
 
-    # 4. Save the WAR file (The CD part)
+    # 4. Save the WAR file
     - name: Upload WAR Artifact
       uses: actions/upload-artifact@v4
       with:
         name: labour-finder-app
-        path: target/*.war
+        # Update this path to match where your pom.xml is!
+        path: labour-finder/labour-finder/target/*.war
