@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Profile - LabourFinder</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">🛠️ LabourFinder</a>
+            <div class="nav-links">
+                <a href="index.html">← Back to Search</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <div id="stepOtp" class="auth-box">
+            <h2 style="margin-top:0">Verify Identity</h2>
+            <p class="text-light">Enter your mobile number to manage your profile.</p>
+            
+            <label class="label">Mobile Number</label>
+            <input type="number" id="inputMobile" class="form-control" placeholder="10 Digit Mobile Number">
+            
+            <button id="btnGenOTP" class="btn btn-secondary btn-block mt-4" style="background:var(--secondary); color:white">Generate OTP</button>
+
+            <div id="otpDisplay" class="otp-banner hidden"></div>
+
+            <div id="otpVerifyDiv" class="hidden mt-4">
+                <label class="label">Enter OTP</label>
+                <input type="text" id="inputOTP" class="form-control" placeholder="6-digit code">
+                <button id="btnVerifyOTP" class="btn btn-primary btn-block mt-4">Verify & Continue</button>
+            </div>
+        </div>
+
+        <div id="stepForm" class="auth-box hidden" style="max-width: 800px;">
+            <h2 style="margin-top:0">Profile Details</h2>
+            <hr style="border:0; border-top:1px solid var(--border); margin-bottom:20px;">
+            
+            <form id="profileForm">
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <label class="label">Full Name</label>
+                        <input type="text" id="pName" class="form-control" required>
+                    </div>
+                    <div>
+                        <label class="label">Profession</label>
+                        <select id="pRole" class="form-control" required>
+                            <option value="Plumber">Plumber</option>
+                            <option value="Electrician">Electrician</option>
+                            <option value="Carpenter">Carpenter</option>
+                            <option value="Mason">Mason</option>
+                            <option value="Painter">Painter</option>
+                            <option value="Driver">Driver</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="label">Daily Rate (₹)</label>
+                        <input type="number" id="pRate" class="form-control" required>
+                    </div>
+                    <div>
+                        <label class="label">Working Hours</label>
+                        <input type="text" id="pTiming" class="form-control" placeholder="e.g. 9AM - 6PM" required>
+                    </div>
+                    <div>
+                        <label class="label">Experience (Years)</label>
+                        <input type="number" id="pExp" class="form-control" required>
+                    </div>
+                    <div>
+                        <label class="label">Self Rating (1-5)</label>
+                        <input type="number" id="pRating" class="form-control" min="1" max="5" step="0.1" required>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 30px; font-size:1.1rem; color:var(--secondary)">Location Details</h3>
+                <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
+                    <input type="text" id="pVill" class="form-control" placeholder="Village / Area">
+                    <input type="text" id="pCity" class="form-control" placeholder="City" required>
+                    <input type="text" id="pState" class="form-control" placeholder="State" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block" style="margin-top: 30px;">Save Profile</button>
+            </form>
+        </div>
+
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/otp.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Labour - Open Directory</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">🛠️ LabourFinder</a>
+            <div class="nav-links">
+                <a href="index.html" class="active">Find Labour</a>
+                <a href="manage-profile.html">Join as Professional</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Connect with Local Professionals</h1>
+            <p>Direct contact. No hidden fees. Open for everyone.</p>
+            
+            <div class="search-wrapper">
+                <select id="roleInput" class="form-control">
+                    <option value="">All Roles</option>
+                    <option value="Plumber">Plumber</option>
+                    <option value="Electrician">Electrician</option>
+                    <option value="Carpenter">Carpenter</option>
+                    <option value="Mason">Mason</option>
+                    <option value="Painter">Painter</option>
+                    <option value="Driver">Driver</option>
+                </select>
+                <input type="text" id="cityInput" class="form-control" placeholder="Enter City (e.g. Mumbai)">
+                <button id="btnSearch" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div id="resultsGrid" class="grid-container">
+            </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/search.js"></script>
+</body>
+</html>
