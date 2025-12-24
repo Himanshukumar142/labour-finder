@@ -1,0 +1,35 @@
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Check out your code
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    # 2. Set up Java 17
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+
+    # 3. Build & Test
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+
+    # 4. Save the WAR file (The CD part)
+    - name: Upload WAR Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: labour-finder-app
+        path: target/*.war
