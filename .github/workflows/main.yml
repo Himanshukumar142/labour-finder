@@ -1,0 +1,37 @@
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Check out your code
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    # 2. Set up Java 17
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+
+    # 3. Build with Maven
+    - name: Build with Maven
+      # We added the path to your pom.xml here
+      run: mvn -B package --file labour-finder/labour-finder/pom.xml
+
+    # 4. Save the WAR file
+    - name: Upload WAR Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: labour-finder-app
+        # Update this path to match where your pom.xml is!
+        path: labour-finder/labour-finder/target/*.war
