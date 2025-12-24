@@ -23,9 +23,10 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    # 3. Build & Test
+    # 3. Build with Maven
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      # We added the path to your pom.xml here
+      run: mvn -B package --file labour-finder/labour-finder/pom.xml
 
     # 4. Save the WAR file (The CD part)
     - name: Upload WAR Artifact
